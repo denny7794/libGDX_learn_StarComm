@@ -7,15 +7,21 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MyGdxGame extends ApplicationAdapter {
+	final int ASTEROID_COUNT = 50;
 	SpriteBatch batch;
 	Background bg;
 	Hero hero;
+	Asteroid[] asteroids;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		bg = new Background();
 		hero = new Hero();
+		asteroids = new Asteroid[ASTEROID_COUNT];
+		for (int i = 0; i < ASTEROID_COUNT; i++) {
+			asteroids[i] = new Asteroid();
+		}
 	}
 
 	@Override
@@ -26,11 +32,17 @@ public class MyGdxGame extends ApplicationAdapter {
 		batch.begin(); // всё что мы хотим отрисовать, должно находиться между batch.begin()...
 		bg.render(batch);
 		hero.render(batch);
+		for (int i = 0; i < ASTEROID_COUNT; i++) {
+			asteroids[i].render(batch);
+		}
 		batch.end(); // ... и batch.end()
 	}
 
 	public void update() { // этот метод будет отвечать за всю игровую логику
 		bg.update();
 		hero.update();
+		for (int i = 0; i < ASTEROID_COUNT; i++) {
+			asteroids[i].update();
+		}
 	}
 }
