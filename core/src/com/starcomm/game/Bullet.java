@@ -13,6 +13,10 @@ public class Bullet {
     private Texture texture;
     private boolean active;
 
+    public Vector2 getPosition() {
+        return position;
+    }
+
     public boolean isActive(){
         return active;
     }
@@ -26,7 +30,7 @@ public class Bullet {
     }
 
     public void render(SpriteBatch batch) {
-        batch.draw(texture, position.x, position.y);
+        batch.draw(texture, position.x, position.y, 20, 10);
     }
 
     public void destroy() {

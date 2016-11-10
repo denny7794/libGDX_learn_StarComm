@@ -57,5 +57,13 @@ public class MyGdxGame extends ApplicationAdapter {
 			if(bullets[i].isActive())
 				bullets[i].update();
 		}
+		for (int i = 0; i < asteroids.length; i++) {
+			for (int j = 0; j < bullets.length; j++) {
+				if(asteroids[i].getPosition().cpy().sub(bullets[j].getPosition()).len() < 20) { // проверяем столкновение астероида с пулей
+					asteroids[i].recreate();
+					bullets[j].destroy();
+				}
+			}
+		}
 	}
 }

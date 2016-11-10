@@ -11,6 +11,10 @@ public class Asteroid {
     private float speed;
     private Texture texture;
 
+    public Vector2 getPosition() {
+        return position;
+    }
+
     public Asteroid() {
         position = new Vector2(1300.0f + (float)(Math.random() * 1000), (float)Math.random() * 720);
         speed = 2.0f + (float)Math.random() * 10.0f;
@@ -27,5 +31,10 @@ public class Asteroid {
         if(position.x < -80) {
             position.x = 1350;
         }
+    }
+
+    public void recreate() {
+        position = new Vector2(1300.0f + (float)(Math.random() * 1000), (float)Math.random() * 720);
+        speed = 2.0f + (float)Math.random() * 10.0f;
     }
 }

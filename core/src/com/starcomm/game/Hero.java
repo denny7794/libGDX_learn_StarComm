@@ -11,6 +11,7 @@ public class Hero {
     private float speed;
     private Texture texture;
     private int firetimer;
+    private final int FIRE_RATE = 10;
 
     public Hero() {
         position = new Vector2(100.0f, 100.0f);
@@ -38,11 +39,11 @@ public class Hero {
         }
         if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             firetimer++;
-            if(firetimer > 10) {
+            if(firetimer > FIRE_RATE) {
                 firetimer = 0;
                 for (int i = 0; i < MyGdxGame.bullets.length; i++) {
                     if(!MyGdxGame.bullets[i].isActive()){
-                        MyGdxGame.bullets[i].setup(position.x, position.y);
+                        MyGdxGame.bullets[i].setup(position.x + 60, position.y + 15);
                         break;
                     }
                 }
