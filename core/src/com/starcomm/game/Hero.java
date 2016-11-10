@@ -37,6 +37,12 @@ public class Hero {
                 position.y = 730;
             }
         }
+        if(Gdx.input.isKeyPressed(Input.Keys.LEFT)){
+            position.x -= speed;
+        }
+        if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)){
+            position.x += speed;
+        }
         if(Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             firetimer++;
             if(firetimer > FIRE_RATE) {
