@@ -35,7 +35,7 @@ public class Asteroid {
     }
 
     public void update() {
-        angle += 0.0f + (float)(Math.random() * 4);
+        angle += speed / 2; //0.0f + (float)(Math.random() * 4);
         position.x -= speed;
         if(position.x < -80) {
             position.x = 1350;
