@@ -8,13 +8,14 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MyGdxGame extends ApplicationAdapter {
 	SpriteBatch batch;
-	Texture img;
 	Background bg;
+	Hero hero;
 	
 	@Override
 	public void create () {
 		batch = new SpriteBatch();
 		bg = new Background();
+		hero = new Hero();
 	}
 
 	@Override
@@ -24,10 +25,12 @@ public class MyGdxGame extends ApplicationAdapter {
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		batch.begin(); // всё что мы хотим отрисовать, должно находиться между batch.begin()...
 		bg.render(batch);
+		hero.render(batch);
 		batch.end(); // ... и batch.end()
 	}
 
 	public void update() { // этот метод будет отвечать за всю игровую логику
 		bg.update();
+		hero.update();
 	}
 }

@@ -1,5 +1,6 @@
 package com.starcomm.game;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
@@ -11,9 +12,9 @@ public class Background {
         private int size;
 
         public Star() {
-            this.position = new Vector2((float)(Math.random() * 1280), (float)(Math.random() * 720));
-            this.speed = 0.1f + (float)(Math.random() * 5.0f);
-            size = (int)(5 * (this.speed));
+            this.position = new Vector2((float)(Math.random() * Gdx.graphics.getWidth()), (float)(Math.random() * Gdx.graphics.getHeight()));
+            this.speed = 0.5f + (float)(Math.random() * 5.0f);
+            size = (int)(6 * (this.speed)); // this можно и не писать в данном случае
         }
 
         public void update() {
