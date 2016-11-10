@@ -65,6 +65,10 @@ public class MyGdxGame extends ApplicationAdapter {
 					bullets[j].destroy();
 				}
 			}
+			if(asteroids[i].getRect().overlaps(hero.getRect())) {
+				asteroids[i].recreate();
+				hero.getDamage(5);
+			}
 		}
 	}
 }
