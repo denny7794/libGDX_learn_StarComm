@@ -14,7 +14,8 @@ public class Asteroid {
     public Asteroid() {
         position = new Vector2(1300.0f + (float)(Math.random() * 1000), (float)Math.random() * 720);
         speed = 2.0f + (float)Math.random() * 10.0f;
-        texture = new Texture("asteroid60.tga");
+        if(texture == null)
+            texture = new Texture("asteroid60.tga");
     }
 
     public void render(SpriteBatch batch) {

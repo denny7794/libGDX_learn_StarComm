@@ -7,11 +7,12 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class MyGdxGame extends ApplicationAdapter {
-	final int ASTEROID_COUNT = 50;
+	final int ASTEROID_COUNT = 20;
 	SpriteBatch batch;
 	Background bg;
 	Hero hero;
 	Asteroid[] asteroids;
+	public static Bullet[] bullets;
 	
 	@Override
 	public void create () {
@@ -21,6 +22,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		asteroids = new Asteroid[ASTEROID_COUNT];
 		for (int i = 0; i < ASTEROID_COUNT; i++) {
 			asteroids[i] = new Asteroid();
+		}
+		bullets = new Bullet[50];
+		for (int i = 0; i < bullets.length; i++) {
+			bullets[i] = new Bullet();
 		}
 	}
 
@@ -35,6 +40,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		for (int i = 0; i < ASTEROID_COUNT; i++) {
 			asteroids[i].render(batch);
 		}
+		for (int i = 0; i < bullets.length; i++) {
+			if(bullets[i].isActive())
+				bullets[i].render(batch);
+		}
 		batch.end(); // ... и batch.end()
 	}
 
@@ -43,6 +52,10 @@ public class MyGdxGame extends ApplicationAdapter {
 		hero.update();
 		for (int i = 0; i < ASTEROID_COUNT; i++) {
 			asteroids[i].update();
+		}
+		for (int i = 0; i < bullets.length; i++) {
+			if(bullets[i].isActive())
+				bullets[i].update();
 		}
 	}
 }
