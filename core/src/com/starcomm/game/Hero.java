@@ -12,6 +12,7 @@ public class Hero {
     private Texture texture;
     private int firetimer;
     private final int FIRE_RATE = 10;
+    private int hp = 5;
 
     public Hero() {
         position = new Vector2(100.0f, 100.0f);
@@ -22,6 +23,10 @@ public class Hero {
 
     public void render(SpriteBatch batch) {
         batch.draw(texture, position.x, position.y);
+    }
+
+    public void getDamage(int x){
+        hp -= x;
     }
 
     public void update() {
